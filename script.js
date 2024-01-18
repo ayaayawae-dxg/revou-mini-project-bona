@@ -8,7 +8,8 @@ document
         e.preventDefault()
 
         const participantTable = document.getElementById('participant-data')
-
+        const tableBody = participantTable.querySelector('tbody')
+        
         const nama = e.target['nama'].value
         const umur = e.target['umur'].value
 
@@ -21,5 +22,5 @@ document
         newTr.appendChild(tdNama)
         newTr.appendChild(tdUmur)
 
-        participantTable.appendChild(newTr)
+        tableBody.appendChild(newTr)
     })
