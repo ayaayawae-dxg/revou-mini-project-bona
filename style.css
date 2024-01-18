@@ -1,15 +1,18 @@
 :root {
-    --primary: #af2427
+    --primary: #af2427;
+    --primary-saturated: #d6bcbc;
+    --gray: #ebebeb;
 }
 
 * {
     box-sizing: border-box;
+    border-collapse: collapse;
 }
 
 body {
     margin: 0;
     padding: 0;
-    background-color: rgb(230, 230, 230);
+    background-color: var(--gray);
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
@@ -19,18 +22,108 @@ header {
     color: aliceblue;
 }
 
+section {
+    padding: 32px 16px 32px 16px;
+}
+
 .container {
     max-width: 640px;
     margin-left: auto;
     margin-right: auto;
+    background-color: white;
+    height: 100vh;
 }
 
 form {
-    display: inline-block;
-    width: 100%;
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
+    align-items: end;
+    gap: 1rem;
 }
 
 .form-group label,
 .form-group input {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.form-group input {
+    padding: 8px;
+    border: 1px solid var(--primary);
+    border-radius: 8px;
+}
+
+.participant-submit {
+    height: fit-content;
+    background-color: var(--primary);
+    color: aliceblue;
+    border: var(--primary);
+    padding: 8px 16px 8px 16px;
+    border-radius: 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.participant-submit:hover {
+    background-color: var(--primary-saturated);
+    color: var(--primary);
+    transition: 0.3s;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
     width: 100%;
+    max-width: 300px;
+    margin-top: 48px;
+}
+
+table tr td:nth-child(2) {
+    text-align: right;
+}
+
+th {
+    background-color: var(--primary);
+    color: aliceblue;
+}
+
+th,
+td {
+    padding: 8px;
+}
+
+tr:nth-child(odd) {
+    background-color: var(--gray);
+}
+
+tr:nth-child(even) {
+    background-color: #d6bcbc;
+}
+
+@media screen and (max-width: 480px) {
+    form {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .form-group,
+    .form-group label,
+    .form-group input,
+    .participant-submit {
+        width: 100%;
+    }
+
+    .participant-submit {
+        margin-top: 24px;
+    }
 }
